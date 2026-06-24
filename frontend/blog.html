@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Події та Новини | Aura SPA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header scrolled">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">AURA<span>SPA</span></a>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="services.html" class="nav-link">Послуги</a></li>
+                    <li><a href="masters.html" class="nav-link">Майстри</a></li>
+                    <li><a href="gallery.html" class="nav-link">Галерея</a></li>
+                    <li><a href="blog.html" class="nav-link" style="color: var(--gold);">Блог</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакти</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="btn btn-outline">Записатись</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Події та Новини</h1>
+            <p>Дізнавайтеся першими про наші спеціальні пропозиції, майстер-класи та оновлення салону.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container blog-grid">
+            
+            <article class="blog-card">
+                <div class="blog-img-wrapper"><div class="blog-img" style="background-image: url('https://easyweek.com.ua/business/blog/content/images/size/w1600/2025/11/shutterstock_1365215495-c97609f52b358971.jpg');"></div></div>
+                <div class="blog-content">
+                    <span class="blog-date">15 Липня, 2026</span>
+                    <h2 class="blog-title">День відкритих дверей в Aura SPA</h2>
+                    <p class="blog-excerpt">Запрошуємо всіх бажаючих на безкоштовну екскурсію нашим салоном. На вас чекає дегустація фірмового трав'яного чаю, знайомство з майстрами та індивідуальний підбір процедур.</p>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img-wrapper"><div class="blog-img" style="background-image: url('https://static9.depositphotos.com/1005018/1204/i/450/depositphotos_12045750-stock-photo-greengreengreen.jpg');"></div></div>
+                <div class="blog-content">
+                    <span class="blog-date">01 Червня, 2026</span>
+                    <h2 class="blog-title">Запуск програми «Тропічний бриз»</h2>
+                    <p class="blog-excerpt">Зустрічайте літо з нашою новою SPA-програмою! Оновлюючий сольовий пілінг, обгортання з екстрактом манго та легкий релакс-масаж. Ідеальне рішення для спекотних днів.</p>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img-wrapper"><div class="blog-img" style="background-image: url('https://imglife.pravda.com.ua/life/system/MediaPhoto/photo/3/6/63687/369b13e2bc7887ae0307a63f5cb145151717853194.jpg?w=770&q=90');"></div></div>
+                <div class="blog-content">
+                    <span class="blog-date">20 Травня, 2026</span>
+                    <h2 class="blog-title">Майстер-клас: Самомасаж обличчя гуаша</h2>
+                    <p class="blog-excerpt">Навчимо вас правильно використовувати скребок гуаша для ранкового зняття набряків та ліфтингу шкіри в домашніх умовах. Кожен учасник отримає набір у подарунок.</p>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img-wrapper"><div class="blog-img" style="background-image: url('https://api.leoderm.ua/media/actions/profcare.jpg');"></div></div>
+                <div class="blog-content">
+                    <span class="blog-date">10 Травня, 2026</span>
+                    <h2 class="blog-title">Оновлення косметичної лінійки</h2>
+                    <p class="blog-excerpt">Ми перейшли на використання преміальної органічної косметики з Франції. Тепер ваші процедури стануть ще ефективнішими: максимум живлення та нуль парабенів.</p>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img-wrapper"><div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div></div>
+                <div class="blog-content">
+                    <span class="blog-date">14 Лютого, 2026</span>
+                    <h2 class="blog-title">Спеціальна пропозиція для закоханих</h2>
+                    <p class="blog-excerpt">Протягом усього лютого діє знижка 20% на всі парні SPA-програми. Подаруйте собі та своїй половинці незабутній вечір повного розслаблення та романтики.</p>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-img-wrapper"><div class="blog-img" style="background-image: url('https://images.homify.com/v1442337041/p/photo/image/910101/DSC_5369_02_recortada.jpg');"></div></div>
+                <div class="blog-content">
+                    <span class="blog-date">15 Січня, 2026</span>
+                    <h2 class="blog-title">Відкриття нового залу для йоги</h2>
+                    <p class="blog-excerpt">Тепер в Aura SPA можна не тільки розслабити тіло під час масажу, а й відновити гармонію розуму на наших ранкових заняттях з хатха-йоги. Запис уже відкрито!</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <a href="index.html" class="logo">AURA<span>SPA</span></a>
+                <p class="footer-desc">Преміальний простір для вашого відпочинку.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакти</h4>
+                <p>м. Кривий Ріг, вул. Олександра Васякіна 4</p>
+                <p>+38 (098) 8-299-299</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Aura SPA. Всі права захищено.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura SPA | Головна</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Aura SPA",
+      "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+      "url": "https://aura-spa.com.ua",
+      "telephone": "+380988299299",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "вул. Олександра Васякіна 4",
+        "addressLocality": "Кривий Ріг",
+        "addressCountry": "UA"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">AURA<span>SPA</span></a>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="services.html" class="nav-link">Послуги</a></li>
+                    <li><a href="masters.html" class="nav-link">Майстри</a></li>
+                    <li><a href="gallery.html" class="nav-link">Галерея</a></li>
+                    <li><a href="blog.html" class="nav-link">Блог</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакти</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="btn btn-outline">Записатись</a>
+        </div>
+    </header>
+
+    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content text-center" style="margin: 0 auto;">
+            <span class="hero-subtitle">Мережа салонів масажу</span>
+            <h1 class="hero-title" style="color: var(--gold);">AURA SPA</h1>
+            <a href="services.html" class="btn btn-gold">Ознайомитись з послугами</a>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <h2 class="home-categories-title">Категорії послуг Aura SPA: Масаж, СПА, Корекція фігури</h2>
+            
+            <div class="home-categories-grid">
+                <a href="services.html#massage" class="home-cat-card">
+                    <div class="home-cat-img" style="background-image: url('https://barb.ua/uploads/3805/conversions/post.jpg');"></div>
+                    <span class="home-cat-title">МАСАЖ</span>
+                </a>
+                <a href="services.html#spa" class="home-cat-card">
+                    <div class="home-cat-img" style="background-image: url('https://ukrinfo-data.s3.amazonaws.com/media/458053/conversions/Screenshot_12-extra-extra-large.webp');"></div>
+                    <span class="home-cat-title">SPA ПРОГРАМИ</span>
+                </a>
+                <a href="services.html#body" class="home-cat-card">
+                    <div class="home-cat-img" style="background-image: url('https://cdn1.pokupon.ua/uploaded/new_campaign_pictures/940159/data/preview475x230/68352520230529-3118419-1dpw94420241121-432575-1qhf63j20241210-1273001-iemq8y20250619-1805334-3bt3dq.png?1750327403');"></div>
+                    <span class="home-cat-title">КОРЕКЦІЯ ФІГУРИ</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Як ми працюємо</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-num">1</div>
+                    <h3>Бронювання</h3>
+                    <p>Ви залишаєте заявку на сайті, обираючи зручну послугу, майстра, дату та час.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">2</div>
+                    <h3>Підтвердження</h3>
+                    <p>Наша система автоматично підтверджує запис. Ви отримуєте SMS-сповіщення з деталями візиту.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">3</div>
+                    <h3>Консультація</h3>
+                    <p>Перед початком процедури майстер проводить коротку бесіду для врахування ваших побажань.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">4</div>
+                    <h3>Релакс</h3>
+                    <p>Ви насолоджуєтеся процесом відновлення у затишній атмосфері нашого салону.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">Часті питання</h2>
+            
+            <h3 class="faq-category-title">Про процедури</h3>
+            <div class="faq-wrapper" style="margin-bottom: 40px;">
+                <div class="faq-item">
+                    <button class="faq-question">Як підготуватися до масажу? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Рекомендуємо не вживати важку їжу за 1,5-2 години до сеансу. Прийміть теплий душ, щоб розслабити м'язи.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Чи є медичні протипоказання? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Так. Масаж не рекомендується при підвищеній температурі, гострих запальних процесах, захворюваннях шкіри та серйозних серцево-судинних патологіях.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Чи можна відвідувати SPA під час вагітності? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>У нас є спеціальні програми для вагітних (після 1-го триместру), однак необхідна попередня консультація з вашим лікарем.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Які олії ви використовуєте? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Ми використовуємо лише 100% натуральні гіпоалергенні базові олії (мигдальна, кокосова, виноградних кісточок).</p></div>
+                </div>
+            </div>
+
+            <h3 class="faq-category-title">Організаційні питання</h3>
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <button class="faq-question">Чи можна скасувати або перенести запис? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Так, ви можете скасувати або перенести візит, повідомивши нашого адміністратора не пізніше ніж за 12 годин до початку сеансу.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Чи є у вас подарункові сертифікати? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Так, ви можете придбати сертифікат на будь-яку суму або конкретну послугу безпосередньо в салоні або замовити електронний варіант.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Які способи оплати доступні? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Ми приймаємо оплату готівкою, банківськими картками (Visa/Mastercard) через термінал, а також за допомогою Apple Pay та Google Pay.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Що потрібно брати з собою? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Нічого брати не потрібно. Ми надаємо все необхідне: одноразову білизну, рушники, халати та капці.</p></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <a href="index.html" class="logo">AURA<span>SPA</span></a>
+                <p class="footer-desc">Преміальний простір для вашого відпочинку.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакти</h4>
+                <p>м. Кривий Ріг, вул. Олександра Васякіна 4</p>
+                <p>+38 (098) 8-299-299</p>
+                <p>Щодня з 9:00 до 19:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Aura SPA. Всі права захищено.</p>
+        </div>
+    </footer>
+</body>
+</html>

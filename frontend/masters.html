@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Майстри | Aura SPA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header scrolled">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">AURA<span>SPA</span></a>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="services.html" class="nav-link">Послуги</a></li>
+                    <li><a href="masters.html" class="nav-link" style="color: var(--gold);">Майстри</a></li>
+                    <li><a href="gallery.html" class="nav-link">Галерея</a></li>
+                    <li><a href="blog.html" class="nav-link">Блог</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакти</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="btn btn-outline">Записатись</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Команда Aura SPA</h1>
+            <p>Фахівці, яким можна довірити своє тіло та спокій.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container masters-grid">
+            
+            <div class="master-card">
+                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://alma.if.ua/images/Photo_014307528161166358600.JPG');"></div></div>
+                <div class="master-info">
+                    <h3>Олена Астахова</h3>
+                    <span class="master-spec">Топ-майстер SPA</span>
+                    <ul class="master-details">
+                        <li><strong>Графік роботи:</strong> Пн, Ср, Пт (10:00 - 19:00)</li>
+                        <li><strong>Досвід:</strong> 8 років</li>
+                        <li><strong>Освіта:</strong> Вища медична (фізичний терапевт)</li>
+                        <li><strong>Сертифікати:</strong> Гавайський масаж Ломі-Ломі, Ароматерапія I-II ступеня</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="master-card">
+                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://mistovechirne.in.ua/sites/default/files/field/image/2222_0.jpg');"></div></div>
+                <div class="master-info">
+                    <h3>Максим Коваль</h3>
+                    <span class="master-spec">Реабілітолог</span>
+                    <ul class="master-details">
+                        <li><strong>Графік роботи:</strong> Вт, Чт, Сб (09:00 - 18:00)</li>
+                        <li><strong>Досвід:</strong> 10 років</li>
+                        <li><strong>Освіта:</strong> НУФВСУ (фізична реабілітація)</li>
+                        <li><strong>Сертифікати:</strong> Спортивний масаж, Міофасціальний реліз</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="master-card">
+                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://assets.yclients.com/masters/origin/7/75/7533c5cf91b3441_20230607110500.png');"></div></div>
+                <div class="master-info">
+                    <h3>Анна Левченко</h3>
+                    <span class="master-spec">Тайський масаж</span>
+                    <ul class="master-details">
+                        <li><strong>Графік роботи:</strong> Пн, Вт, Чт (11:00 - 19:00)</li>
+                        <li><strong>Досвід:</strong> 5 років</li>
+                        <li><strong>Освіта:</strong> Школа масажного мистецтва</li>
+                        <li><strong>Сертифікати:</strong> Традиційний тайський масаж (Бангкок)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="master-card">
+                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://villa.lviv.ua/wp-content/uploads/2024/01/photo_2024-01-17_16-08-43.jpg');"></div></div>
+                <div class="master-info">
+                    <h3>Ігор Тарасюк</h3>
+                    <span class="master-spec">Оздоровчий масаж</span>
+                    <ul class="master-details">
+                        <li><strong>Графік роботи:</strong> Ср, Пт, Сб (10:00 - 18:00)</li>
+                        <li><strong>Досвід:</strong> 7 років</li>
+                        <li><strong>Освіта:</strong> Медичний коледж (сестринська справа)</li>
+                        <li><strong>Сертифікати:</strong> Лікувальний масаж, Стоун-терапія</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="master-card">
+                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://www.shutterstock.com/image-photo/portrait-professional-beautician-cosmetologist-work-600nw-2620996373.jpg');"></div></div>
+                <div class="master-info">
+                    <h3>Вікторія Саніна</h3>
+                    <span class="master-spec">Апаратна корекція фігури</span>
+                    <ul class="master-details">
+                        <li><strong>Графік роботи:</strong> Вт, Чт, Нд (09:00 - 17:00)</li>
+                        <li><strong>Досвід:</strong> 4 роки</li>
+                        <li><strong>Освіта:</strong> Курси косметології тіла</li>
+                        <li><strong>Сертифікати:</strong> LPG-масаж, Кавітація, Пресотерапія</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="master-card">
+                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://smartmedicalcenter.ua/wp-content/uploads/2022/12/vitruk-foto-1.jpg');"></div></div>
+                <div class="master-info">
+                    <h3>Дмитро Бойко</h3>
+                    <span class="master-spec">Спортивний масаж</span>
+                    <ul class="master-details">
+                        <li><strong>Графік роботи:</strong> Пн, Ср, Нд (12:00 - 19:00)</li>
+                        <li><strong>Досвід:</strong> 6 років</li>
+                        <li><strong>Освіта:</strong> Інститут фізкультури</li>
+                        <li><strong>Сертифікати:</strong> Робота з тригерними точками</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <a href="index.html" class="logo">AURA<span>SPA</span></a>
+                <p class="footer-desc">Преміальний простір для вашого відпочинку.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакти</h4>
+                <p>м. Кривий Ріг, вул. Олександра Васякіна 4</p>
+                <p>+38 (098) 8-299-299</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Aura SPA. Всі права захищено.</p>
+        </div>
+    </footer>
+</body>
+</html>

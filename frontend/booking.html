@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запис онлайн | Aura SPA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header scrolled">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">AURA<span>SPA</span></a>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="services.html" class="nav-link">Послуги</a></li>
+                    <li><a href="masters.html" class="nav-link">Майстри</a></li>
+                    <li><a href="gallery.html" class="nav-link">Галерея</a></li>
+                    <li><a href="blog.html" class="nav-link">Блог</a></li>
+                    <li><a href="contacts.html" class="nav-link">Контакти</a></li>
+                </ul>
+            </nav>
+            <a href="booking.html" class="btn btn-outline" style="background: var(--gold); color: #000;">Записатись</a>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Онлайн запис</h1>
+            <p>Залиште заявку, і наша CRM автоматично збереже деталі вашого візиту.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container" style="max-width: 700px;">
+            <div class="booking-form">
+                <form action="send.php" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше ім'я" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select name="service" required>
+                            <option value="" disabled selected>Крок 1: Оберіть процедуру</option>
+                            <optgroup label="МАСАЖ">
+                                <option value="m_classic">Класичний масаж</option>
+                                <option value="m_thai">Тайський масаж</option>
+                                <option value="m_sport">Спортивний масаж</option>
+                                <option value="m_lymph">Лімфодренажний масаж</option>
+                                <option value="m_back">Масаж спини</option>
+                                <option value="m_feet">Масаж стоп</option>
+                            </optgroup>
+                            <optgroup label="SPA ПРОГРАМИ">
+                                <option value="s_royal">Королівський SPA</option>
+                                <option value="s_choco">Шоколадне задоволення</option>
+                                <option value="s_pair">Романтика для двох</option>
+                                <option value="s_stone">Стоун-терапія</option>
+                                <option value="s_detox">SPA Детокс</option>
+                                <option value="s_tropic">Тропічний рай</option>
+                            </optgroup>
+                            <optgroup label="КОРЕКЦІЯ ФІГУРИ">
+                                <option value="b_anti">Антицелюлітний масаж</option>
+                                <option value="b_vac">Апаратний вакуумний</option>
+                                <option value="b_press">Пресотерапія</option>
+                                <option value="b_honey">Медове обгортання</option>
+                                <option value="b_mio">Міостимуляція</option>
+                                <option value="b_cavit">Кавітація</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="master">
+                            <option value="" disabled selected>Крок 2: Оберіть майстра (необов'язково)</option>
+                            <option value="astakhova">Олена Астахова</option>
+                            <option value="koval">Максим Коваль</option>
+                            <option value="levchenko">Анна Левченко</option>
+                            <option value="tarasyuk">Ігор Тарасюк</option>
+                            <option value="sanina">Вікторія Саніна</option>
+                            <option value="boyko">Дмитро Бойко</option>
+                        </select>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group">
+                            <label style="font-size: 12px; color: var(--text-muted); display:block; margin-bottom: 5px;">Дата візиту</label>
+                            <input type="date" name="date" required style="color: var(--text-main);">
+                        </div>
+                        <div class="form-group">
+                            <label style="font-size: 12px; color: var(--text-muted); display:block; margin-bottom: 5px;">Бажаний час</label>
+                            <input type="time" name="time" required style="color: var(--text-main);">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Додаткові побажання..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-full">Підтвердити запис</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <a href="index.html" class="logo">AURA<span>SPA</span></a>
+                <p class="footer-desc">Преміальний простір для вашого відпочинку.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакти</h4>
+                <p>м. Кривий Ріг, вул. Олександра Васякіна 4</p>
+                <p>+38 (098) 8-299-299</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Aura SPA. Всі права захищено.</p>
+        </div>
+    </footer>
+</body>
+</html>
