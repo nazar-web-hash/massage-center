@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Майстри | Aura SPA</title>
-    <meta name="description" content="Команда професійних масажистів та реабілітологів Aura SPA. Ознайомтеся з досвідом та освітою наших фахівців перед записом.">
+    <meta name="description"
+        content="Команда професійних масажистів та реабілітологів Aura SPA. Ознайомтеся з досвідом та освітою наших фахівців перед записом.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <header class="header scrolled">
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">AURA<span>SPA</span></a>
-            <div class="menu-toggle"><span></span><span></span><span></span></div>
+
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="services.html" class="nav-link">Послуги</a></li>
-                    <li><a href="masters.html" class="nav-link" style="color: var(--gold);">Майстри</a></li>
+                    <li><a href="masters.html" class="nav-link">Майстри</a></li>
                     <li><a href="gallery.html" class="nav-link">Галерея</a></li>
                     <li><a href="blog.html" class="nav-link">Блог</a></li>
                     <li><a href="contacts.html" class="nav-link">Контакти</a></li>
                 </ul>
+
+                <!-- Кнопка всередині меню -->
+                <a href="booking.html" class="btn btn-gold btn-full nav-mobile-btn">
+                    Записатись
+                </a>
             </nav>
-            <a href="booking.html" class="btn btn-outline">Записатись</a>
+
+            <!-- Кнопка для ПК -->
+            <a href="booking.html" class="btn btn-gold desktop-btn">
+                Записатись
+            </a>
         </div>
     </header>
 
@@ -40,9 +60,13 @@
 
     <section class="section-padding">
         <div class="container masters-grid">
-            
+
             <div class="master-card">
-                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://alma.if.ua/images/Photo_014307528161166358600.JPG');"></div></div>
+                <div class="master-photo-wrapper">
+                    <div class="master-photo"
+                        style="background-image: url('https://alma.if.ua/images/Photo_014307528161166358600.JPG');">
+                    </div>
+                </div>
                 <div class="master-info">
                     <h3>Олена Астахова</h3>
                     <span class="master-spec">Топ-майстер SPA</span>
@@ -56,7 +80,11 @@
             </div>
 
             <div class="master-card">
-                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://mistovechirne.in.ua/sites/default/files/field/image/2222_0.jpg');"></div></div>
+                <div class="master-photo-wrapper">
+                    <div class="master-photo"
+                        style="background-image: url('https://mistovechirne.in.ua/sites/default/files/field/image/2222_0.jpg');">
+                    </div>
+                </div>
                 <div class="master-info">
                     <h3>Максим Коваль</h3>
                     <span class="master-spec">Реабілітолог</span>
@@ -70,7 +98,11 @@
             </div>
 
             <div class="master-card">
-                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://assets.yclients.com/masters/origin/7/75/7533c5cf91b3441_20230607110500.png');"></div></div>
+                <div class="master-photo-wrapper">
+                    <div class="master-photo"
+                        style="background-image: url('https://assets.yclients.com/masters/origin/7/75/7533c5cf91b3441_20230607110500.png');">
+                    </div>
+                </div>
                 <div class="master-info">
                     <h3>Анна Левченко</h3>
                     <span class="master-spec">Тайський масаж</span>
@@ -84,7 +116,11 @@
             </div>
 
             <div class="master-card">
-                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://villa.lviv.ua/wp-content/uploads/2024/01/photo_2024-01-17_16-08-43.jpg');"></div></div>
+                <div class="master-photo-wrapper">
+                    <div class="master-photo"
+                        style="background-image: url('https://villa.lviv.ua/wp-content/uploads/2024/01/photo_2024-01-17_16-08-43.jpg');">
+                    </div>
+                </div>
                 <div class="master-info">
                     <h3>Ігор Тарасюк</h3>
                     <span class="master-spec">Оздоровчий масаж</span>
@@ -98,7 +134,11 @@
             </div>
 
             <div class="master-card">
-                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://www.shutterstock.com/image-photo/portrait-professional-beautician-cosmetologist-work-600nw-2620996373.jpg');"></div></div>
+                <div class="master-photo-wrapper">
+                    <div class="master-photo"
+                        style="background-image: url('https://www.shutterstock.com/image-photo/portrait-professional-beautician-cosmetologist-work-600nw-2620996373.jpg');">
+                    </div>
+                </div>
                 <div class="master-info">
                     <h3>Вікторія Саніна</h3>
                     <span class="master-spec">Апаратна корекція фігури</span>
@@ -112,7 +152,11 @@
             </div>
 
             <div class="master-card">
-                <div class="master-photo-wrapper"><div class="master-photo" style="background-image: url('https://smartmedicalcenter.ua/wp-content/uploads/2022/12/vitruk-foto-1.jpg');"></div></div>
+                <div class="master-photo-wrapper">
+                    <div class="master-photo"
+                        style="background-image: url('https://smartmedicalcenter.ua/wp-content/uploads/2022/12/vitruk-foto-1.jpg');">
+                    </div>
+                </div>
                 <div class="master-info">
                     <h3>Дмитро Бойко</h3>
                     <span class="master-spec">Спортивний масаж</span>
@@ -145,4 +189,5 @@
         </div>
     </footer>
 </body>
+
 </html>

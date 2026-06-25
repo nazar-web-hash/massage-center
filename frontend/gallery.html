@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Галерея | Aura SPA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <header class="header scrolled">
+    <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">AURA<span>SPA</span></a>
-            <div class="menu-toggle"><span></span><span></span><span></span></div>
+
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="services.html" class="nav-link">Послуги</a></li>
                     <li><a href="masters.html" class="nav-link">Майстри</a></li>
-                    <li><a href="gallery.html" class="nav-link" style="color: var(--gold);">Галерея</a></li>
+                    <li><a href="gallery.html" class="nav-link">Галерея</a></li>
                     <li><a href="blog.html" class="nav-link">Блог</a></li>
                     <li><a href="contacts.html" class="nav-link">Контакти</a></li>
                 </ul>
+
+                <!-- Кнопка всередині меню -->
+                <a href="booking.html" class="btn btn-gold btn-full nav-mobile-btn">
+                    Записатись
+                </a>
             </nav>
-            <a href="booking.html" class="btn btn-outline">Записатись</a>
+
+            <!-- Кнопка для ПК -->
+            <a href="booking.html" class="btn btn-gold desktop-btn">
+                Записатись
+            </a>
         </div>
     </header>
 
@@ -39,15 +58,31 @@
 
     <section class="section-padding">
         <div class="container gallery-grid">
-            <div class="gallery-item" style="background-image: url('https://primelaser.com.ua/wp-content/uploads/2021/05/1-37.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('https://lh6.googleusercontent.com/proxy/lSeyDd_q5DBoWEAR_rxoCnk6s-jstDTx_mM15h8mt0AhHCSGifqXy1u3HTPXFr66mS1MN1GGPX5sDp2y_OG3o8i21L8hLNE');"></div>
-            <div class="gallery-item" style="background-image: url('https://elina-school.dp.ua/wp-content/uploads/2023/05/kak-obustroit-massazhnyj-kabinet-2.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('https://donum.ua/image/catalog/Staty/Top-10massage/relaksmassazh.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('https://i.pinimg.com/736x/52/a2/77/52a277fe3e72fad1e43f188fb091e82c.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('https://www.serenitybytheseaspa.com/wp-content/uploads/2025/09/neck-massage-images-287x354-1.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('https://st3.depositphotos.com/1177973/14712/i/450/depositphotos_147121301-stock-photo-interior-of-massage-room.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('https://rehabukraine.com/assets/img/blog/19.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('https://i-idea.com.ua/upload/resize_cache/webp/iblock/982/17fr5ilwqau43ar997d470oroj18wvea.webp');"></div>
+            <div class="gallery-item"
+                style="background-image: url('https://primelaser.com.ua/wp-content/uploads/2021/05/1-37.jpg');"></div>
+            <div class="gallery-item"
+                style="background-image: url('https://lh6.googleusercontent.com/proxy/lSeyDd_q5DBoWEAR_rxoCnk6s-jstDTx_mM15h8mt0AhHCSGifqXy1u3HTPXFr66mS1MN1GGPX5sDp2y_OG3o8i21L8hLNE');">
+            </div>
+            <div class="gallery-item"
+                style="background-image: url('https://elina-school.dp.ua/wp-content/uploads/2023/05/kak-obustroit-massazhnyj-kabinet-2.jpg');">
+            </div>
+            <div class="gallery-item"
+                style="background-image: url('https://donum.ua/image/catalog/Staty/Top-10massage/relaksmassazh.jpg');">
+            </div>
+            <div class="gallery-item"
+                style="background-image: url('https://i.pinimg.com/736x/52/a2/77/52a277fe3e72fad1e43f188fb091e82c.jpg');">
+            </div>
+            <div class="gallery-item"
+                style="background-image: url('https://www.serenitybytheseaspa.com/wp-content/uploads/2025/09/neck-massage-images-287x354-1.jpg');">
+            </div>
+            <div class="gallery-item"
+                style="background-image: url('https://st3.depositphotos.com/1177973/14712/i/450/depositphotos_147121301-stock-photo-interior-of-massage-room.jpg');">
+            </div>
+            <div class="gallery-item" style="background-image: url('https://rehabukraine.com/assets/img/blog/19.jpg');">
+            </div>
+            <div class="gallery-item"
+                style="background-image: url('https://i-idea.com.ua/upload/resize_cache/webp/iblock/982/17fr5ilwqau43ar997d470oroj18wvea.webp');">
+            </div>
         </div>
     </section>
 
@@ -68,4 +103,5 @@
         </div>
     </footer>
 </body>
+
 </html>
