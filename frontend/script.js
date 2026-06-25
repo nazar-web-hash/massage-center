@@ -6,13 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
         else header.classList.remove('scrolled');
     });
 
-    // 2. Мобільне меню
+    // 2. Мобільне меню та бургер-іконка (З кутовим напівпрозорим меню)
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
     if (toggle && nav) {
-        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            toggle.classList.toggle('active');
+        });
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => nav.classList.remove('active'));
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                toggle.classList.remove('active');
+            });
         });
     }
 
@@ -35,14 +41,21 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 4. GSAP Анімації
+    // 4. Валідація дати в формі бронювання (заборона минулого часу)
+    const dateInput = document.querySelector('input[type="date"]');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+
+    // 5. GSAP Анімації: Елементи плавно з'являються виключно при прокручуванні до них
     if (typeof gsap !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Головний банер
+        // Головний банер (Вхідна анімація при завантаженні)
         if(document.querySelector('.hero-title')) {
-            gsap.from('.hero-subtitle', { opacity: 0, y: 20, duration: 1, ease: 'power3.out', delay: 0.2 });
-            gsap.from('.hero-title', { opacity: 0, y: 30, duration: 1, ease: 'power3.out', delay: 0.4 });
+            gsap.from('.hero-subtitle', { opacity: 0, y: 30, duration: 1.2, ease: 'power2.out', delay: 0.2 });
+            gsap.from('.hero-title', { opacity: 0, y: 40, duration: 1.2, ease: 'power2.out', delay: 0.5 });
         }
 
         // Заголовки внутрішніх сторінок
@@ -51,64 +64,72 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.from('.page-hero p', { opacity: 0, y: 20, duration: 1, ease: 'power3.out', delay: 0.3 });
         }
 
-        // Головна: Категорії
+        // Головна сторінка: Категорії
         gsap.from('.home-cat-card', {
-            scrollTrigger: { trigger: '.home-categories-grid', start: 'top 80%' },
-            opacity: 0, y: 40, duration: 0.8, stagger: 0.2
+            scrollTrigger: { trigger: '.home-categories-grid', start: 'top 95%' },
+            opacity: 0, y: 40, duration: 0.8, ease: 'power2.out', stagger: 0.2
         });
 
-        // ПОСЛУГИ (Виправлено сходинки)
-        // stagger встановлено на 0, щоб картки у сітці з'являлися одночасно
+        // Картки Послуг (Анімація запускається, коли верх картки торкається 95% екрану)
         document.querySelectorAll('.services-card-grid').forEach(grid => {
             gsap.from(grid.querySelectorAll('.srv-card'), {
-                scrollTrigger: { trigger: grid, start: 'top 85%' },
+                scrollTrigger: { trigger: grid, start: 'top 95%' },
                 opacity: 0, 
-                y: 50, 
-                duration: 0.6, 
-                stagger: 0 
+                y: 40, 
+                duration: 0.8, 
+                ease: 'power2.out',
+                stagger: 0.15 
             });
         });
 
-        // Майстри
-        gsap.from('.master-card', {
-            scrollTrigger: { trigger: '.masters-grid', start: 'top 80%' },
-            opacity: 0, y: 50, duration: 0.8, stagger: 0.2
-        });
+        // Майстри (Запуск тільки при скролі до блоку)
+        if(document.querySelector('.master-card')) {
+            gsap.from('.master-card', {
+                scrollTrigger: { trigger: '.masters-grid', start: 'top 95%' },
+                opacity: 0, y: 40, duration: 0.8, ease: 'power2.out', stagger: 0.15 
+            });
+        }
 
-        // Галерея
-        gsap.from('.gallery-item', {
-            scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
-            opacity: 0, scale: 0.9, duration: 0.6, stagger: 0.1
-        });
+        // Галерея (Поява фотографій тільки при досягненні 95% екрану)
+        if(document.querySelector('.gallery-item')) {
+            gsap.from('.gallery-item', {
+                scrollTrigger: { trigger: '.gallery-grid', start: 'top 95%' },
+                opacity: 0, scale: 0.95, y: 30, duration: 0.6, ease: 'power2.out', stagger: 0.1 
+            });
+        }
         
-        // Як ми працюємо
-        gsap.from('.process-step', {
-            scrollTrigger: { trigger: '.process-grid', start: 'top 85%' },
-            opacity: 0, y: 30, duration: 0.6, stagger: 0.2
-        });
+        // Секція "Як ми працюємо" (Кроки)
+        if(document.querySelector('.process-step')) {
+            gsap.from('.process-step', {
+                scrollTrigger: { trigger: '.process-grid', start: 'top 95%' },
+                opacity: 0, y: 40, duration: 0.8, ease: 'power2.out', stagger: 0.2
+            });
+        }
         
-        // FAQ
-        gsap.from('.faq-item', {
-            scrollTrigger: { trigger: '.faq-wrapper', start: 'top 85%' },
-            opacity: 0, y: 20, duration: 0.5, stagger: 0.1
-        });
+        // Блок питань FAQ
+        if(document.querySelector('.faq-item')) {
+            gsap.from('.faq-item', {
+                scrollTrigger: { trigger: '.faq-wrapper', start: 'top 95%' },
+                opacity: 0, y: 30, duration: 0.6, ease: 'power2.out', stagger: 0.15
+            });
+        }
 
-        // Блог
-        const blogCards = document.querySelectorAll('.blog-card');
-        if (blogCards.length > 0) {
+        // Картки Блогу / Подій
+        const blogGrid = document.querySelector('.blog-grid');
+        if (blogGrid) {
             gsap.from('.blog-card', {
-                scrollTrigger: { trigger: '.blog-grid', start: 'top 85%' },
-                opacity: 0, y: 50, duration: 0.8, stagger: 0.2
+                scrollTrigger: { trigger: blogGrid, start: 'top 95%' },
+                opacity: 0, y: 40, duration: 0.8, ease: 'power2.out', stagger: 0.15 
             });
 
-            blogCards.forEach(card => {
+            document.querySelectorAll('.blog-card').forEach(card => {
                 gsap.from(card.querySelectorAll('.blog-date, .blog-title, .blog-excerpt'), {
-                    scrollTrigger: { trigger: card, start: 'top 90%' },
-                    opacity: 0, y: 20, duration: 0.6, stagger: 0.1, delay: 0.2
+                    scrollTrigger: { trigger: card, start: 'top 95%' },
+                    opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', stagger: 0.1, delay: 0.2
                 });
                 gsap.from(card.querySelector('.blog-img'), {
-                    scrollTrigger: { trigger: card, start: 'top 90%' },
-                    scale: 1.2, duration: 1.5, ease: 'power2.out'
+                    scrollTrigger: { trigger: card, start: 'top 95%' },
+                    scale: 1.15, duration: 1.4, ease: 'power1.out'
                 });
             });
         }
