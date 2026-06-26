@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (document.querySelector('.masters-grid')) {
             gsap.from('.master-card', {
                 scrollTrigger: { trigger: '.masters-grid', start: 'top bottom' },
-                opacity: 0,
+                opacity: 1,
                 duration: 0.8,
                 ease: 'power2.out',
                 stagger: 0.15

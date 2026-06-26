@@ -110,9 +110,11 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 .home-cat-card:hover { transform: scale(0.98); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 .home-cat-img {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover; background-position: center; transition: transform 0.8s ease;
+    background-size: cover; background-position: center; /* Центр для категорій */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
 }
-.home-cat-card:hover .home-cat-img { transform: scale(1.05); }
+.home-cat-card:hover .home-cat-img { transform: scale(1.03); }
 .home-cat-card::after {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(44, 38, 33, 0.4); transition: background 0.4s ease;
@@ -155,8 +157,13 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
     transition: transform 0.4s ease, box-shadow 0.4s ease; margin-top: 0 !important; height: 100%;
 }
 .srv-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(182, 141, 93, 0.15); }
-.srv-card-img { height: 250px; min-height: 250px; background-size: cover; background-position: center; transition: transform 0.8s ease; }
-.srv-card:hover .srv-card-img { transform: scale(1.05); }
+.srv-card-img { 
+    height: 250px; min-height: 250px; 
+    background-size: cover; background-position: center; /* ЗМІНЕНО: Центр для послуг */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    will-change: transform;
+}
+.srv-card:hover .srv-card-img { transform: scale(1.03); }
 .srv-card-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
 .srv-card-title { font-size: 24px; color: var(--text-main); margin-bottom: 15px; text-align: center; }
 .srv-card-list { list-style: none; margin-bottom: 25px; padding-left: 0; }
@@ -165,78 +172,103 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 .srv-card-prices { margin-top: auto; margin-bottom: 25px; }
 .srv-price-row { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text-main); margin-bottom: 5px; font-weight: 600; }
 
-/* МАЙСТРИ */
-.masters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: stretch; margin-top: 0 !important; }
-.master-card { 
-    background: var(--white); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(182, 141, 93, 0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease; margin-top: 0 !important; height: 100%;
-}
-.master-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(182, 141, 93, 0.15); }
-.master-photo-wrapper { overflow: hidden; height: 400px; flex-shrink: 0; }
-.master-photo { height: 100%; width: 100%; background-size: cover; background-position: top center; transition: transform 0.8s ease; }
-.master-card:hover .master-photo { transform: scale(1.05); }
-.master-info { padding: 30px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
-.master-info h3 { font-size: 26px; color: var(--text-main); margin-bottom: 5px; }
-.master-spec { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); display: block; margin-bottom: 20px; }
-.master-details { list-style: none; padding: 0; margin-top: auto; text-align: left; font-size: 14px; color: var(--text-muted); }
-.master-details li { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(182, 141, 93, 0.1); line-height: 1.5; }
-.master-details li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.master-details strong { color: var(--text-main); font-weight: 500; display: block; margin-bottom: 3px; }
-
 /* =========================================
-   НОВА БЕЗКІНЕЧНА ГАЛЕРЕЯ (ІДЕАЛЬНИЙ ЦИКЛ)
+   МАЙСТРИ (ПК: Шахматний порядок, 2 колонки фото/текст)
    ========================================= */
+.masters-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 60px; 
+    margin-top: 0 !important; 
+}
+
+.master-card { 
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 50px;
+    align-items: center;
+    background: var(--white); 
+    padding: 35px;
+    border-radius: 12px; 
+    border: 1px solid rgba(182,141,93,.15); 
+    box-shadow: 0 12px 35px rgba(0,0,0,.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease; 
+    margin-top: 0 !important; 
+}
+
+.master-card:hover { 
+    transform: translateY(-6px); 
+    box-shadow: 0 20px 45px rgba(182,141,93,.18); 
+}
+
+.master-card:nth-child(even) { grid-template-columns: 1fr 420px; }
+.master-card:nth-child(even) .master-photo-wrapper { order: 2; }
+.master-card:nth-child(even) .master-info { order: 1; }
+
+.master-photo-wrapper { 
+    overflow: hidden; 
+    border-radius: 10px;
+    height: 500px; 
+}
+
+.master-photo { 
+    height: 100%; 
+    width: 100%; 
+    background-size: cover; 
+    background-position: top center; /* ЗАЛИШИЛИ top center, щоб голова не обрізалась */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    will-change: transform;
+}
+
+.master-card:hover .master-photo { 
+    transform: scale(1.06); 
+}
+
+.master-info { text-align: left; }
+.master-info h3 { font-size: 42px; color: var(--text-main); margin-bottom: 5px; font-family: var(--font-heading); }
+.master-spec { display: inline-block; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 30px; }
+.master-details { list-style: none; padding: 0; text-align: left; font-size: 15px; color: var(--text-muted); }
+.master-details li { padding: 18px 0; border-bottom: 1px solid rgba(182,141,93,.12); line-height: 1.6; }
+.master-details li:last-child { border-bottom: none; padding-bottom: 0; }
+.master-details strong { color: var(--text-main); font-weight: 500; display: block; margin-bottom: 5px; }
+
+/* ГАЛЕРЕЯ */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: stretch; margin-top: 0 !important; }
+.gallery-item { 
+    height: 350px; background-size: cover; background-position: center; border-radius: 8px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid transparent; 
+    transition: transform 0.4s ease, box-shadow 0.4s ease; margin-top: 0 !important; 
+}
+.gallery-item:hover { transform: scale(0.98); box-shadow: 0 15px 35px rgba(182, 141, 93, 0.2); }
+
+/* БЕЗКІНЕЧНА ГАЛЕРЕЯ (КАРУСЕЛЬ) */
 .gallery-marquee {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100vw;
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    left: 50%; right: 50%;
+    margin-left: -50vw; margin-right: -50vw;
     overflow: hidden;
 }
 .marquee-track {
     display: flex;
     width: max-content;
-    /* Видалено gap: 20px, щоб уникнути збою при зацикленні */
 }
-.track-left {
-    animation: scroll-left 40s linear infinite;
-}
-.track-right {
-    animation: scroll-right 35s linear infinite;
-}
-.marquee-track:hover {
-    animation-play-state: paused;
-}
+.track-left { animation: scroll-left 40s linear infinite; }
+.track-right { animation: scroll-right 35s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
 .gallery-marquee .gallery-item {
-    width: 320px;
-    height: 250px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
+    width: 320px; height: 250px; flex-shrink: 0; border-radius: 8px;
+    background-size: cover; background-position: center; /* ЗМІНЕНО: Центр для галереї */
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-    margin-top: 0 !important;
-    margin-right: 20px; /* Додано замість gap для ідеальної математики циклу */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform; margin-top: 0 !important; margin-right: 20px; 
 }
-.gallery-marquee .gallery-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 15px 30px rgba(182, 141, 93, 0.2);
-}
-@keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
-}
-@keyframes scroll-right {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
-}
+.gallery-marquee .gallery-item:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(182, 141, 93, 0.2); }
+@keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 
 /* БЛОГ / НОВИНИ */
 .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: stretch; margin-top: 0 !important; }
@@ -247,8 +279,13 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 }
 .blog-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(182, 141, 93, 0.15); }
 .blog-img-wrapper { overflow: hidden; height: 220px; flex-shrink: 0; }
-.blog-img { height: 100%; width: 100%; background-size: cover; background-position: center; transition: transform 0.8s ease; }
-.blog-card:hover .blog-img { transform: scale(1.08); }
+.blog-img { 
+    height: 100%; width: 100%; 
+    background-size: cover; background-position: center; /* ЗМІНЕНО: Центр для блогу */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+    will-change: transform;
+}
+.blog-card:hover .blog-img { transform: scale(1.03); }
 .blog-content { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
 .blog-date { font-size: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; font-weight: bold; }
 .blog-title { font-size: 22px; color: var(--text-main); margin-bottom: 15px; line-height: 1.3; }
@@ -322,12 +359,15 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     .home-categories-grid { grid-template-columns: 1fr; }
     .home-categories-grid .home-cat-card:nth-child(3) { grid-column: auto; height: 250px; }
     .contacts-grid { grid-template-columns: 1fr; }
-}
 
-@media (max-width: 768px) {
-    .section-padding { padding: 60px 0; }
+    /* ЦЕНТРУВАННЯ КАРТОК КОНТАКТІВ НА МОБІЛЬНИХ / ПЛАНШЕТАХ */
+    .contact-infocard { 
+        text-align: center; 
+        border-left: none; 
+        border-top: 3px solid var(--gold); 
+    }
+
     .menu-toggle { display: flex; z-index: 1001; }
-    
     .desktop-btn { display: none; }
     .nav-mobile-btn { display: block; width: 100%; margin-top: 25px; padding: 15px 0; text-align: center; border-radius: 4px; }
 
@@ -346,10 +386,6 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     .menu-toggle.active span:nth-child(2) { opacity: 0; }
     .menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
-    .hero-title { font-size: 46px; margin-bottom: 30px; }
-    .section-title { font-size: 32px; }
-
-    /* ФІКС МОБІЛЬНОГО СВАЙПЕРА ТА ВИРІВНЮВАННЯ КАРТОК */
     .services-card-grid, 
     .masters-grid, 
     .blog-grid, 
@@ -357,49 +393,88 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
         display: flex !important; 
         flex-wrap: nowrap !important;
         overflow-x: auto !important; 
-        scroll-snap-type: x mandatory; 
-        gap: 15px; 
-        padding-bottom: 25px;
+        scroll-snap-type: x mandatory !important; 
+        gap: 20px !important; 
+        padding-bottom: 25px !important;
         margin-top: 0 !important;
-        margin-left: -20px;
-        margin-right: -20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        -ms-overflow-style: none; 
-        scrollbar-width: none; 
-        align-items: stretch !important; /* РОБИТЬ КАРТКИ ОДНАКОВИМИ ПО ВИСОТІ */
+        
+        width: 100vw !important;
+        position: relative !important;
+        left: 50% !important; right: 50% !important;
+        margin-left: -50vw !important; margin-right: -50vw !important;
+        padding-left: 5vw !important; padding-right: 5vw !important;
+        -ms-overflow-style: none; scrollbar-width: none; 
+        align-items: stretch !important; 
     }
     
     .services-card-grid::-webkit-scrollbar,
     .masters-grid::-webkit-scrollbar,
     .blog-grid::-webkit-scrollbar,
-    .process-grid::-webkit-scrollbar { 
-        display: none; 
-    }
-    
-    .srv-card,
-    .master-card,
-    .blog-card,
-    .process-step { 
+    .process-grid::-webkit-scrollbar { display: none; }
+
+    .srv-card, .blog-card, .process-step { 
         flex: 0 0 80vw !important; 
-        max-width: 80vw;
-        scroll-snap-align: center; 
+        max-width: 80vw !important;
+        scroll-snap-align: center !important; 
         height: auto !important;
-        align-self: stretch !important; /* ЖОРСТКЕ ВИРІВНЮВАННЯ В ЛІНІЮ */
+        align-self: stretch !important; 
         margin-top: 0 !important;
     }
 
-    /* ВІДКЛЮЧЕННЯ "ЗАЛИПАННЯ" ХОВЕРУ НА ТЕЛЕФОНАХ */
-    .srv-card:hover, .master-card:hover, .blog-card:hover, .process-step:hover, .gallery-item:hover, .gallery-marquee .gallery-item:hover {
+    .master-card { 
+        flex: 0 0 85vw !important; 
+        max-width: 85vw !important;
+        scroll-snap-align: center !important; 
+        align-self: stretch !important; 
+        margin: 0 auto !important;
+        
+        display: grid !important;
+        grid-template-columns: 300px 1fr !important;
+        gap: 30px !important;
+        padding: 30px !important;
+        height: auto !important;
+        transform: none !important;
+    }
+
+    .master-card:nth-child(even) { grid-template-columns: 300px 1fr !important; }
+    .master-card:nth-child(even) .master-photo-wrapper { order: 0 !important; }
+    .master-card:nth-child(even) .master-info { order: 0 !important; }
+
+    .master-photo-wrapper { height: 100% !important; min-height: 350px !important; width: 100% !important; }
+    .master-info { padding: 0 !important; text-align: left !important; display: flex !important; flex-direction: column !important; justify-content: center !important; }
+    .master-info h3 { font-size: 32px !important; }
+    .master-spec { margin-bottom: 20px !important; }
+
+    .srv-card:hover .srv-card-img, .master-card:hover .master-photo, .blog-card:hover .blog-img { transform: none !important; }
+    .gallery-marquee .gallery-item:hover { transform: none !important; box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important; }
+    .srv-card:hover, .master-card:hover, .blog-card:hover, .process-step:hover {
         transform: none !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.03) !important;
     }
+}
 
-    .gallery-marquee .gallery-item {
-        width: 250px;
-        height: 200px;
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
+    .hero-title { font-size: 46px; margin-bottom: 30px; }
+    .section-title { font-size: 32px; }
+
+    .master-card { 
+        flex: 0 0 90vw !important; 
+        max-width: 90vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important; 
+        padding: 20px !important;
+        gap: 20px !important;
     }
 
+    .master-photo-wrapper { height: 300px !important; min-height: auto !important; }
+    .master-info { text-align: center !important; }
+    .master-info h3 { font-size: 26px !important; }
+    .master-spec { font-size: 12px !important; margin-bottom: 15px !important; }
+    .master-details li { padding: 10px 0 !important; font-size: 13px !important; }
+
+    .gallery-marquee .gallery-item { width: 250px; height: 200px; }
     .process-step { padding: 20px 15px !important; }
     .process-num { width: 30px; height: 30px; font-size: 16px; margin-bottom: 10px; }
     .process-step h3 { font-size: 18px; margin-bottom: 8px; }
