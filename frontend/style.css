@@ -184,9 +184,8 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 .master-details li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 .master-details strong { color: var(--text-main); font-weight: 500; display: block; margin-bottom: 3px; }
 
-
 /* =========================================
-   НОВА БЕЗКІНЕЧНА ГАЛЕРЕЯ (КАРУСЕЛЬ)
+   НОВА БЕЗКІНЕЧНА ГАЛЕРЕЯ (ІДЕАЛЬНИЙ ЦИКЛ)
    ========================================= */
 .gallery-marquee {
     display: flex;
@@ -202,14 +201,14 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 }
 .marquee-track {
     display: flex;
-    gap: 20px;
     width: max-content;
+    /* Видалено gap: 20px, щоб уникнути збою при зацикленні */
 }
 .track-left {
-    animation: scroll-left 35s linear infinite;
+    animation: scroll-left 40s linear infinite;
 }
 .track-right {
-    animation: scroll-right 30s linear infinite;
+    animation: scroll-right 35s linear infinite;
 }
 .marquee-track:hover {
     animation-play-state: paused;
@@ -224,6 +223,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
     margin-top: 0 !important;
+    margin-right: 20px; /* Додано замість gap для ідеальної математики циклу */
 }
 .gallery-marquee .gallery-item:hover {
     transform: scale(1.03);
@@ -237,7 +237,6 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
     0% { transform: translateX(-50%); }
     100% { transform: translateX(0); }
 }
-
 
 /* БЛОГ / НОВИНИ */
 .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: stretch; margin-top: 0 !important; }
@@ -350,7 +349,7 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     .hero-title { font-size: 46px; margin-bottom: 30px; }
     .section-title { font-size: 32px; }
 
-    /* ФІКС МОБІЛЬНОГО СВАЙПЕРА ТА ВИРІВНЮВАННЯ КАРТОК (ПРИБРАВ СХОДИНКИ) */
+    /* ФІКС МОБІЛЬНОГО СВАЙПЕРА ТА ВИРІВНЮВАННЯ КАРТОК */
     .services-card-grid, 
     .masters-grid, 
     .blog-grid, 
@@ -386,8 +385,14 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
         max-width: 80vw;
         scroll-snap-align: center; 
         height: auto !important;
-        align-self: stretch !important; /* ЖОРСТКЕ ВИРІВНЮВАННЯ */
+        align-self: stretch !important; /* ЖОРСТКЕ ВИРІВНЮВАННЯ В ЛІНІЮ */
         margin-top: 0 !important;
+    }
+
+    /* ВІДКЛЮЧЕННЯ "ЗАЛИПАННЯ" ХОВЕРУ НА ТЕЛЕФОНАХ */
+    .srv-card:hover, .master-card:hover, .blog-card:hover, .process-step:hover, .gallery-item:hover, .gallery-marquee .gallery-item:hover {
+        transform: none !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03) !important;
     }
 
     .gallery-marquee .gallery-item {
