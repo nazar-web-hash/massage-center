@@ -110,7 +110,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 .home-cat-card:hover { transform: scale(0.98); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 .home-cat-img {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover; background-position: center; /* Центр для категорій */
+    background-size: cover; background-position: center;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
 }
@@ -159,7 +159,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 .srv-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(182, 141, 93, 0.15); }
 .srv-card-img { 
     height: 250px; min-height: 250px; 
-    background-size: cover; background-position: center; /* ЗМІНЕНО: Центр для послуг */
+    background-size: cover; background-position: center; 
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
     will-change: transform;
 }
@@ -173,7 +173,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 .srv-price-row { display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text-main); margin-bottom: 5px; font-weight: 600; }
 
 /* =========================================
-   МАЙСТРИ (ПК: Шахматний порядок, 2 колонки фото/текст)
+   МАЙСТРИ (ПК: Шахматний порядок)
    ========================================= */
 .masters-grid { 
     display: grid; 
@@ -215,7 +215,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
     height: 100%; 
     width: 100%; 
     background-size: cover; 
-    background-position: top center; /* ЗАЛИШИЛИ top center, щоб голова не обрізалась */
+    background-position: top center; 
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
     will-change: transform;
 }
@@ -232,43 +232,89 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 .master-details li:last-child { border-bottom: none; padding-bottom: 0; }
 .master-details strong { color: var(--text-main); font-weight: 500; display: block; margin-bottom: 5px; }
 
-/* ГАЛЕРЕЯ */
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: stretch; margin-top: 0 !important; }
-.gallery-item { 
-    height: 350px; background-size: cover; background-position: center; border-radius: 8px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid transparent; 
-    transition: transform 0.4s ease, box-shadow 0.4s ease; margin-top: 0 !important; 
-}
-.gallery-item:hover { transform: scale(0.98); box-shadow: 0 15px 35px rgba(182, 141, 93, 0.2); }
 
-/* БЕЗКІНЕЧНА ГАЛЕРЕЯ (КАРУСЕЛЬ) */
-.gallery-marquee {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100vw;
-    position: relative;
-    left: 50%; right: 50%;
-    margin-left: -50vw; margin-right: -50vw;
+/* =========================================
+   ЖИВИЙ ОРГАНІЧНИЙ КОЛАЖ (12 ФОТО - МАКСИМАЛЬНО РОЗКИНУТО)
+   ========================================= */
+.fluid-gallery-section {
     overflow: hidden;
+    padding: 80px 0;
+    background-color: var(--bg-main);
 }
-.marquee-track {
-    display: flex;
-    width: max-content;
+
+.gallery-collage-container {
+    position: relative;
+    height: 750px; 
+    margin-top: 40px;
 }
-.track-left { animation: scroll-left 40s linear infinite; }
-.track-right { animation: scroll-right 35s linear infinite; }
-.marquee-track:hover { animation-play-state: paused; }
-.gallery-marquee .gallery-item {
-    width: 320px; height: 250px; flex-shrink: 0; border-radius: 8px;
-    background-size: cover; background-position: center; /* ЗМІНЕНО: Центр для галереї */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform; margin-top: 0 !important; margin-right: 20px; 
+
+.collage-item {
+    position: absolute;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(44, 38, 33, 0.08);
+    background: var(--white);
+    border: 1px solid rgba(182, 141, 93, 0.15);
+    transition: box-shadow 0.5s ease, border-color 0.5s ease;
+    cursor: pointer;
+    will-change: transform, opacity;
 }
-.gallery-marquee .gallery-item:hover { transform: scale(1.02); box-shadow: 0 15px 30px rgba(182, 141, 93, 0.2); }
-@keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-@keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+.collage-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: kenBurnsSmooth 20s ease-in-out infinite alternate;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.collage-caption {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(44, 38, 33, 0.8), transparent);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.collage-item:hover {
+    z-index: 50 !important;
+    border-color: var(--gold);
+    box-shadow: 0 25px 50px rgba(182, 141, 93, 0.25);
+}
+
+.collage-item:hover .collage-caption { opacity: 1; transform: translateY(0); }
+
+/* ПОЗИЦІЮВАННЯ 12 ПЛИТОК НА ПК (Широко розкинуті по краях) */
+.item-main { width: 440px; height: 340px; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; }
+
+/* Кутові крайні плитки */
+.item-1 { width: 280px; height: 210px; top: 0%; left: -2%; z-index: 5; }
+.item-2 { width: 290px; height: 220px; top: 2%; right: -2%; z-index: 5; }
+.item-3 { width: 270px; height: 200px; bottom: 2%; left: 0%; z-index: 6; }
+.item-4 { width: 280px; height: 210px; bottom: -2%; right: 2%; z-index: 6; }
+
+/* Середні та виступаючі за екран */
+.item-5 { width: 220px; height: 160px; top: 40%; left: -6%; z-index: 4; }
+.item-6 { width: 240px; height: 180px; top: 45%; right: -5%; z-index: 4; }
+.item-7 { width: 230px; height: 150px; top: -4%; left: 32%; z-index: 3; }
+.item-8 { width: 250px; height: 170px; bottom: -5%; right: 32%; z-index: 4; }
+
+/* Проміжні для глибини */
+.item-9 { width: 190px; height: 150px; bottom: 25%; left: 18%; z-index: 8; }
+.item-10 { width: 200px; height: 150px; top: 20%; right: 20%; z-index: 2; }
+.item-11 { width: 180px; height: 140px; bottom: 20%; right: -2%; z-index: 7; }
+
+@keyframes kenBurnsSmooth {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.05) rotate(0.5deg); }
+}
+
 
 /* БЛОГ / НОВИНИ */
 .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: stretch; margin-top: 0 !important; }
@@ -281,7 +327,7 @@ h1, h2, h3, h4, .logo { font-family: var(--font-heading); font-weight: 500; }
 .blog-img-wrapper { overflow: hidden; height: 220px; flex-shrink: 0; }
 .blog-img { 
     height: 100%; width: 100%; 
-    background-size: cover; background-position: center; /* ЗМІНЕНО: Центр для блогу */
+    background-size: cover; background-position: center; 
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
     will-change: transform;
 }
@@ -329,7 +375,7 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
 .contacts-info-cards { display: flex; flex-direction: column; gap: 20px; }
 .contact-infocard { 
     background: var(--white); padding: 30px; border-radius: 8px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-left: 3px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-top: 3px solid var(--gold); text-align: center;
 }
 .contact-infocard h4 { font-size: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
 .contact-infocard p { font-size: 20px; color: var(--text-main); font-family: var(--font-heading); font-weight: 600; margin: 0; }
@@ -352,20 +398,12 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
 .footer-bottom { text-align: center; color: rgba(253, 251, 247, 0.5); font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
 
 /* =========================================
-   АДАПТИВНІСТЬ ТА МОБІЛЬНЕ МЕНЮ
+   АДАПТИВНІСТЬ ТА МОБІЛЬНЕ МЕНЮ (Планшети)
    ========================================= */
-
 @media (max-width: 992px) {
     .home-categories-grid { grid-template-columns: 1fr; }
     .home-categories-grid .home-cat-card:nth-child(3) { grid-column: auto; height: 250px; }
     .contacts-grid { grid-template-columns: 1fr; }
-
-    /* ЦЕНТРУВАННЯ КАРТОК КОНТАКТІВ НА МОБІЛЬНИХ / ПЛАНШЕТАХ */
-    .contact-infocard { 
-        text-align: center; 
-        border-left: none; 
-        border-top: 3px solid var(--gold); 
-    }
 
     .menu-toggle { display: flex; z-index: 1001; }
     .desktop-btn { display: none; }
@@ -445,14 +483,27 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     .master-info h3 { font-size: 32px !important; }
     .master-spec { margin-bottom: 20px !important; }
 
+    /* ВІДКЛЮЧАЄМО ЗБІЛЬШЕННЯ ПРИ НАВЕДЕННІ (ХОВЕР) НА СЕНСОРНИХ ПРИСТРОЯХ */
     .srv-card:hover .srv-card-img, .master-card:hover .master-photo, .blog-card:hover .blog-img { transform: none !important; }
-    .gallery-marquee .gallery-item:hover { transform: none !important; box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important; }
+    .gallery-collage-container .collage-item:hover { transform: none !important; box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important; z-index: auto !important; }
     .srv-card:hover, .master-card:hover, .blog-card:hover, .process-step:hover {
         transform: none !important;
         box-shadow: 0 10px 30px rgba(0,0,0,0.03) !important;
     }
+
+    /* АДАПТИВНІСТЬ КОЛАЖУ НА ПЛАНШЕТАХ */
+    .gallery-collage-container { height: 600px; }
+    .item-main { width: 340px; height: 280px; }
+    .item-1 { width: 220px; height: 160px; left: 5%; top: 10%; }
+    .item-2 { width: 230px; height: 170px; right: 5%; top: 15%; }
+    .item-3 { width: 240px; height: 180px; left: 8%; bottom: 8%; }
+    .item-4 { width: 250px; height: 170px; right: 8%; bottom: 12%; }
+    .item-5, .item-6, .item-7, .item-8, .item-9, .item-10, .item-11 { display: none; } 
 }
 
+/* =========================================
+   АДАПТИВНІСТЬ ТА МОБІЛЬНЕ МЕНЮ (Телефони)
+   ========================================= */
 @media (max-width: 768px) {
     .section-padding { padding: 60px 0; }
     .hero-title { font-size: 46px; margin-bottom: 30px; }
@@ -474,7 +525,6 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
     .master-spec { font-size: 12px !important; margin-bottom: 15px !important; }
     .master-details li { padding: 10px 0 !important; font-size: 13px !important; }
 
-    .gallery-marquee .gallery-item { width: 250px; height: 200px; }
     .process-step { padding: 20px 15px !important; }
     .process-num { width: 30px; height: 30px; font-size: 16px; margin-bottom: 10px; }
     .process-step h3 { font-size: 18px; margin-bottom: 8px; }
@@ -482,6 +532,34 @@ input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webk
 
     .booking-form { padding: 30px 20px; }
     .booking-form form > div[style*="display: grid"] { grid-template-columns: 1fr !important; gap: 0 !important; }
+
+    /* НА ТЕЛЕФОНАХ КОЛАЖ ПЕРЕТВОРЮЄТЬСЯ НА СВАЙПЕР */
+    .fluid-gallery-section { padding: 40px 0; }
+    .gallery-collage-container {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 15px;
+        height: 350px !important;
+        width: 100vw !important;
+        margin-left: -20px; margin-right: -20px;
+        padding-left: 20px; padding-right: 20px;
+        -ms-overflow-style: none; scrollbar-width: none;
+    }
+    .gallery-collage-container::-webkit-scrollbar { display: none; }
+    
+    .collage-item {
+        position: relative !important;
+        top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+        transform: none !important;
+        flex: 0 0 80vw !important;
+        max-width: 80vw !important;
+        height: 300px !important;
+        scroll-snap-align: center !important;
+        display: block !important;
+    }
+    .collage-caption { opacity: 1; transform: translateY(0); background: linear-gradient(to top, rgba(0,0,0,0.6), transparent); }
 }
 
 @media (max-width: 480px) {
