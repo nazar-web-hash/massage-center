@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
     }
+    initBookingForm();
+
+
 
     // 5. GSAP Анімації
     if (typeof gsap !== 'undefined') {
@@ -221,6 +224,54 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 500);
             }
         }
+    }
+
+    function initBookingForm() {
+        const form = document.querySelector('.js-booking-form');
+        const message = document.querySelector('.js-booking-message');
+
+        if (!form) return;
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            const formData = new FormData(form);
+            const payload = Object.fromEntries(formData.entries());
+
+            setBookingMessage(message, 'Відправляємо заявку...', false);
+            if (submitButton) submitButton.disabled = true;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/appointments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json().catch(() => ({}));
+
+                if (!response.ok) {
+                    throw new Error(result.error || 'Не вдалося зберегти запис');
+                }
+
+                form.reset();
+                setBookingMessage(message, 'Заявку збережено. Ми скоро з вами зв\'яжемося.', false);
+            } catch (error) {
+                setBookingMessage(message, error.message || 'Не вдалося зберегти запис', true);
+            } finally {
+                if (submitButton) submitButton.disabled = false;
+            }
+        });
+    }
+
+    function setBookingMessage(element, text, isError) {
+        if (!element) return;
+
+        element.textContent = text;
+        element.classList.toggle('is-error', Boolean(isError));
     }
 });
 

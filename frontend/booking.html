@@ -47,7 +47,7 @@
     <section class="section-padding">
         <div class="container" style="max-width: 700px;">
             <div class="booking-form">
-                <form action="send.php" method="POST">
+                <form id="booking-form" class="js-booking-form">
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Ваше ім'я" required>
                     </div>
@@ -116,6 +116,7 @@
                         <textarea name="message" placeholder="Додаткові побажання..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-gold btn-full">Підтвердити запис</button>
+                    <p class="form-message js-booking-message" aria-live="polite"></p>
                 </form>
             </div>
         </div>
